@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int strPeriod(string str) {
+int period(string str) {
     int period;
     period = str.length();
     for (int i = 1; i <= ((str.length()) / 2); i++) {
@@ -25,7 +25,7 @@ int main() {
     for (int j = 0; j < N; j++) {
         std::string str;
         cin >> str;
-        cout << strPeriod(str) << endl;
+        cout << period(str) << endl;
     }
     return 0;
 }

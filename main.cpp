@@ -1,31 +1,29 @@
 #include <iostream>
-#include <string>
+#include <cstring>
+#include <cstdio>
 
 using namespace std;
 
-int period(string str) {
-    int period;
-    period = str.length();
-    for (int i = 1; i <= ((str.length()) / 2); i++) {
-        int j;
-        for (j = 0; j < str.length() - i;) {
-            if (str[j] == str[j + i]) { j++; } else { break; }
-        }
-        if (j == (str.length() - i)) {
-            period = i;
-            break;
-        }
-    }
-    return period;
-}
-
 int main() {
-    int N;
+    int N, i, j;
+    string str;
+    int logic;
     cin >> N;
-    for (int j = 0; j < N; j++) {
-        std::string str;
+    while (N--) {
         cin >> str;
-        cout << period(str) << endl;
+        logic = true;
+        for (i = 1; i <= str.length(); i++) {
+            if (str.length() % i != 0) continue;
+            for (j = i; j < str.length(); j++)
+                if (str[j] != str[j % i]) {
+                    logic = false;
+                    break;
+                }
+            if (logic) break;
+            logic = true;
+        }
+        cout << i << endl;
+        if(N) cout << endl;
     }
     return 0;
 }
